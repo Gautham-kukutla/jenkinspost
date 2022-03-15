@@ -16,7 +16,7 @@ pipeline {
         }
         steps {
              echo 'Test stage main is executed.'
-        }
+        }}
         stage ('Deploy') {
         when {
             expression{
