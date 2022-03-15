@@ -42,6 +42,9 @@ post {
         always { 
             echo 'This is post always'
         }
+    failure { 
+            echo 'This is post failure'
+        }
     unsuccessful{
         echo 'this is post unsuccessful'
     }
