@@ -10,7 +10,9 @@ pipeline {
             }}
         stage ('test') {
         when {
-            branch 'origin/main'
+            expression{
+            BRANCH_NAME == 'main'
+            }
         }
         steps {
              echo 'Test stage main is executed.'
@@ -18,8 +20,9 @@ pipeline {
     }
         stage ('Deploy') {
         when {
-            branch 'origin/master'
-        }
+            expression{
+            BRANCH_NAME == 'master'
+            }
         steps {
              echo 'Test stage Master is executed.'
         }
