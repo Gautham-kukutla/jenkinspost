@@ -5,15 +5,13 @@ pipeline {
         stage('Clone') {
             steps {  
                 sh'''rm -rf change
-                echo ${BRANCH_NAME}
-                echo ${env.BRANCH_NAME}
                 git clone https://github.com/Gautham-kukutla/jenkinspost.git change
                 '''
             }}
         stage ('test') {
         when {
             expression{
-            env.BRANCH_NAME == 'main'
+            GIT_BRANCH == 'main'
             }
         }
         steps {
