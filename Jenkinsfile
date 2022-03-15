@@ -5,7 +5,7 @@ pipeline {
         stage('Clone') {
             steps {  
                 sh'''rm -rf change
-                git clone https://github.com/Gautham-kukutla/gitchanges.git change
+                git clone https://github.com/Gautham-kukutla/jenkinspost.git change
                 '''
             }}
         stage('Git Modification Check') {
