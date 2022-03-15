@@ -10,7 +10,7 @@ pipeline {
             }}
         stage ('test') {
         when {
-            branch 'main'
+            branch 'origin/main'
         }
         steps {
              echo 'Test stage main is executed.'
@@ -18,7 +18,7 @@ pipeline {
     }
         stage ('Deploy') {
         when {
-            branch 'master'
+            branch 'origin/master'
         }
         steps {
              echo 'Test stage Master is executed.'
