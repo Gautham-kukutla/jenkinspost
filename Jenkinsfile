@@ -32,6 +32,7 @@ pipeline {
 
                 sh'''pip install --upgrade autopep8
                 cd change
+                echo "${env.BRANCH_NAME}"
                 pwd
                 git config --global user.email "gautham.kukutla@gmail.com"
                 git config --global user.name "Gautham-kukutla"
