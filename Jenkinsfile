@@ -8,6 +8,22 @@ pipeline {
                 git clone https://github.com/Gautham-kukutla/jenkinspost.git change
                 '''
             }}
+        stage ('test') {
+        when {
+            branch 'main'
+        }
+        steps {
+             echo 'Test stage main is executed.'
+        }
+    }
+        stage ('Deploy') {
+        when {
+            branch 'master'
+        }
+        steps {
+             echo 'Test stage Master is executed.'
+        }
+    }
         stage('Git Modification Check') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'gittoken', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
@@ -18,10 +34,17 @@ pipeline {
                 git config --global user.email "gautham.kukutla@gmail.com"
                 git config --global user.name "Gautham-kukutla"
                 chmod +x script.sh
-                ./script.sh
-                
+                ./script.sh  
                 '''
                 }}
+        }    }}
+post { 
+        always { 
+            echo 'This is post always'
         }
+    unsuccessful{
+        echo 'this is post unsuccessful'
     }
-}
+    success { 
+            echo 'This is post success'
+        }}
