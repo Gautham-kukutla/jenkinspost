@@ -37,7 +37,7 @@ pipeline {
                 ./script.sh  
                 '''
                 }}
-        }    }}
+            }}
 post { 
         always { 
             echo 'This is post always'
@@ -48,3 +48,4 @@ post {
     success { 
             echo 'This is post success'
         }}
+}
