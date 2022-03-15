@@ -5,6 +5,8 @@ pipeline {
         stage('Clone') {
             steps {  
                 sh'''rm -rf change
+                echo ${BRANCH_NAME}
+                echo ${env.BRANCH_NAME}
                 git clone https://github.com/Gautham-kukutla/jenkinspost.git change
                 '''
             }}
@@ -32,7 +34,6 @@ pipeline {
 
                 sh'''pip install --upgrade autopep8
                 cd change
-                echo "${env.BRANCH_NAME}"
                 pwd
                 git config --global user.email "gautham.kukutla@gmail.com"
                 git config --global user.name "Gautham-kukutla"
