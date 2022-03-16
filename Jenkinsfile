@@ -8,19 +8,19 @@ pipeline {
                 git clone https://github.com/Gautham-kukutla/jenkinspost.git change
                 '''
             }}
-        stage ('test') {
+        stage ('branch main test') {
         when {
             expression{
-            GIT_BRANCH == 'main'
+                 GIT_BRANCH == 'main'
             }
         }
         steps {
              echo 'Test stage main is executed.'
         }}
-        stage ('Deploy') {
+        stage ('branch master test') {
         when {
             expression{
-            env.BRANCH_NAME == 'master'
+                BRANCH_NAME == 'master'
             }}
         steps {
              echo 'Test stage Master is executed.'
