@@ -30,7 +30,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'gittoken', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
 
-                sh'''pip3 install --upgrade autopep8
+                sh'''
+                #pip3 install --upgrade autopep8
                 cd change
                 pwd
                 git config --global user.email "gautham.kukutla@gmail.com"
